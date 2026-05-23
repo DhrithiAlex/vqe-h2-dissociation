@@ -10,6 +10,7 @@ This document contains the numerical results obtained from the VQE simulations f
 
 ![H2 Dissociation Curve](Visual_Outputs/H2_Dissociation_Curve_and_Comparison.png)
 
+---
 # VQE vs FCI Energy Comparison
 
 | d (Å) | E_VQE (Ha) | E_FCI (Ha) | \|ΔE\| (mEh) | Chem. acc? |
