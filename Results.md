@@ -46,7 +46,7 @@ This document contains the numerical results obtained from the VQE simulations f
 
 ## Phase 2 & 3: Algorithm Degradation (Noisy) vs. Recovery (ZNE)
 *Demonstrates the impact of simulated quantum noise (Phase 2) and the subsequent application of Zero Noise Extrapolation (Phase 3).*
-
+![Phase Simulation](Visual_Outputs/H2_molecule_3_phase_simulation.png)
 # Noisy VQE and ZNE Error Mitigation Comparison
 
 | d (Å) | FCI (Ha) | Ideal VQE (Ha) | Noisy VQE (Ha) | ZNE (Ha) | Δnoisy (mEh) | ΔZNE (mEh) | Chem. acc? |
