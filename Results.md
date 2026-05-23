@@ -46,6 +46,7 @@ This document contains the numerical results obtained from the VQE simulations f
 
 ## Phase 2 & 3: Algorithm Degradation (Noisy) vs. Recovery (ZNE)
 *Demonstrates the impact of simulated quantum noise (Phase 2) and the subsequent application of Zero Noise Extrapolation (Phase 3).*
+
 ![Phase Simulation](Visual_Outputs/H2_molecule_3_phase_simulation.png)
 # Noisy VQE and ZNE Error Mitigation Comparison
 
@@ -73,22 +74,30 @@ This document contains the numerical results obtained from the VQE simulations f
 * **Error reduction from ZNE:** 90%
 * **ZNE chemical accuracy:** 0/15 geometries
 
-## Analysis: 
+---
+
+## Analysis: Breakdown of Simulation Insights
 
 1. **Degradation (Phase 2):**
    The injection of quantum noise causes a significant upward shift in the computed ground state energy, pushing the results well outside the threshold of chemical accuracy.
 2. **Recovery (Phase 3):**
    Applying Zero Noise Extrapolation (ZNE) successfully mitigates the simulated hardware errors, bringing the final computed energies much closer to the ideal baseline without requiring additional physical qubits for quantum error correction.
 
-*Here is a breakdown of exactly what information those numbers provide:* 
-## 1. The Equilibrium Bond Length and Ground State (Chemistry Insight): 
-By observing where the energy reaches its absolute lowest point (the global minimum) on the ideal curve, we obtain the natural resting distance between the two Hydrogen atoms. In the data, this occurs at ~0.735 Å with a ground state energy of -1.13728 Ha. This tells us the fundamental, stable geometry of the molecule. 
+---
 
-## 2. The Dissociation Energy (Chemistry Insight): 
-As the distance increases beyond the equilibrium point (e.g., towards 2.00 Å), the energy rises and eventually plateaus. The difference between the lowest energy state and this plateau gives us the bond dissociation energy—the exact amount of energy required to permanently break the $H_2$ molecule apart into two isolated hydrogen atoms.
+**1. The Equilibrium Bond Length and Ground State (Chemistry Insight)**
 
-## 3. Quantification of Hardware Degradation (Algorithmic Insight): 
-The Phase 2 (Noisy) results provide a direct measure of how decoherence, gate errors, and readout errors affect the VQE optimizer. Because the noisy energy values are consistently higher (closer to zero) than the ideal values, we learn that physical hardware errors prevent the quantum circuit from reaching the true mathematical minimum. It quantifies the "accuracy gap" inherent in current NISQ (Noisy Intermediate-Scale Quantum) devices.
-  
-##  4. The Efficacy of Error Mitigation (Algorithmic Insight): 
-The Phase 3 (ZNE) results tell us how much of that hardware degradation is mathematically recoverable. By successfully pushing the energy values back down near the ideal baseline, the data proves that we can extract chemically meaningful results from imperfect hardware without waiting for fully fault-tolerant quantum computers.
+ By observing where the energy reaches its absolute lowest point on the ideal curve, we obtain the natural resting distance between the two hydrogen atoms. Based on the provided Phase 1 data, this minimum occurs at 0.70 Å with a ground state energy of -1.136189 Ha. This defines the fundamental, stable geometry of the $H_2$ molecule in this simulation.
+    
+**2. The Dissociation Energy (Chemistry Insight)**
+
+ As the interatomic distance increases beyond the equilibrium point, the energy rises and eventually plateaus. In the data, this plateau is visible as the distance approaches 2.50 Å to 2.60 Å, where the energy levels off around -0.935 Ha. The difference between the lowest energy state (-1.136189 Ha) and this plateau gives us the bond dissociation energy—roughly 0.201 Ha—which is the exact amount of energy required to permanently break the molecule apart into isolated atoms.
+    
+**3. Quantification of Hardware Degradation (Algorithmic Insight):**
+
+The Phase 2 (Noisy VQE) results directly measure the impact of simulated hardware errors (decoherence, gate, and readout errors). The noisy energy values are shifted significantly upward, with an average error of 89.0 mEh. This quantifies the "accuracy gap" in NISQ devices, demonstrating that unmitigated physical errors severely disrupt the VQE optimizer and prevent the quantum circuit from reaching the true mathematical minimum.
+     
+**4. The Efficacy of Error Mitigation (Algorithmic Insight):**
+
+The Phase 3 (ZNE) results highlight both the power and the limitations of Zero Noise Extrapolation. ZNE successfully mitigated a massive portion of the hardware degradation, reducing the noise-induced error by 90% (dropping the average error from 89.0 mEh to 9.3 mEh). However, the data shows that ZNE achieved chemical accuracy in 0 out of 15 geometries. This proves that while ZNE extracts vastly improved, mathematically closer results without requiring physical error correction, it is insufficient on its own to reach strict chemical accuracy under this specific noise profile.
+
