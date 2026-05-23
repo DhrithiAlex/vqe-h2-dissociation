@@ -7,7 +7,7 @@ This document contains the numerical results obtained from the VQE simulations f
 
 ## Phase 1: Ideal VQE Simulation
 *Assumes a noiseless, mathematically pure statevector simulation.*
-![](H2 
+!(H2 Dissociation Curve & Comparison.png)
 # VQE vs FCI Energy Comparison
 
 | d (Å) | E_VQE (Ha) | E_FCI (Ha) | \|ΔE\| (mEh) | Chem. acc? |
