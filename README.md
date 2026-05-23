@@ -1,5 +1,7 @@
 # VQE Applied to the Hydrogen Molecule (Dissociation Curve)
 
+![Visual Representation](Visual_Outputs/licensed_image.jpg)
+
 ## Overview
 This repository demonstrates the application of the Variational Quantum Eigensolver (VQE) to calculate the ground state energy of a Hydrogen molecule ($H_2$) across various interatomic distances, ultimately plotting its dissociation curve. 
 
